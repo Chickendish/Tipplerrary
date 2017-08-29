@@ -8,15 +8,16 @@ var app = express();
 
 var PORT = 5000;
 
-//======================================
-//			Middleware
-//======================================
-
-app.use(epress.static('public'));
 
 //======================================
 // 			Routes
 //======================================
+
+/* 		Middleware - comes before routes
+		and looks here first           */
+
+app.use(express.static('public'));
+app.use(express.static('src', 'views'));
 
 app.get('/', function(req,res){
 	res.send("hello world");
