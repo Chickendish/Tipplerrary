@@ -20,5 +20,8 @@
   "dependencies": {
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
