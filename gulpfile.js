@@ -12,6 +12,7 @@ gulp.task('style', function(){
 
 gulp.task('inject',function(){
 	var wiredep = require('wiredep').stream;
+	var inject = require('gulp-inject');
 	var options = {
 		bowerJson: require('./bower.json'),
 		directory: './public/lib'
