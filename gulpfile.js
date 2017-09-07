@@ -1,13 +1,15 @@
 var gulp = require('gulp');
+var util = require('gulp-util');
+var jscs = require('gulp-jscs');
 var plugz = require('gulp-load-plugins')({lazy: true});
 
 var jsFiles = ['*.js', 'src/**/*.js'];
 
-gulp.task('vet', function{
+gulp.task('vet', function(){
 	log('Checking source with JSHint and JSCS - ');
 	return gulp
 	.src(jsFiles)
-	.pipe(JSCS())
+	.pipe(jscs())
 	.pipe(jshint())
 	.pipe(jshint.reporter('jshint-stylish', {verbose: true}));
 });
