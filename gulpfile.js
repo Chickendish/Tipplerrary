@@ -4,14 +4,14 @@ var plugz = require('gulp-load-plugins')({lazy: true});
 var jsFiles = ['*.js', 'src/**/*.js'];
 
 gulp.task('vet', function{
-	log('Checking source with JSHint and JSCS - ')
-})
-
-gulp.task('style', function(){
-	return gulp.src(jsFiles)
-		.pipe(jshint())
-		.pipe(fixmyjs());
+	log('Checking source with JSHint and JSCS - ');
+	return gulp
+	.src(jsFiles)
+	.pipe(JSCS())
+	.pipe(jshint())
+	.pipe(jshint.reporter('jshint-stylish', {verbose: true}));
 });
+
 
 gulp.task('inject',function(){
 	var wiredep = require('wiredep').stream;
@@ -26,6 +26,8 @@ gulp.task('inject',function(){
 	.pipe(gulp.dest('.src/views'));
 
 });
+
+/////////////////////////////////////////////////////
 
 function log(msg){
 	if (typeof(msg) ==='object'){
