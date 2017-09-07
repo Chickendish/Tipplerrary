@@ -33,5 +33,5 @@ app.get('/', function(req,res){
 //======================================
 
 app.listen(PORT, function(err){
-	console.log("App listening on port:" + PORT);
+	console.log('App listening on port:' + PORT);
 });

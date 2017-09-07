@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var util = require('gulp-util');
 var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
 var plugz = require('gulp-load-plugins')({lazy: true});
 
 var jsFiles = ['*.js', 'src/**/*.js'];
@@ -21,9 +22,10 @@ gulp.task('inject',function(){
 	var options = {
 		bowerJson: require('./bower.json'),
 		directory: './public/lib'
-	}
+	};
 
-	return gulp.src('.src/views/*.html')
+	return gulp
+	.src('.src/views/*.html')
 	.pipe(wiredep(options))
 	.pipe(gulp.dest('.src/views'));
 
